@@ -10,6 +10,7 @@ set(HEADER_FILES
     ${SOFAVALIDATION_SRC}/DataMonitor.h
     ${SOFAVALIDATION_SRC}/DevAngleCollisionMonitor.h
     ${SOFAVALIDATION_SRC}/DevAngleCollisionMonitor.inl
+    ${SOFAVALIDATION_SRC}/DevBaseMonitor.h
     ${SOFAVALIDATION_SRC}/DevMonitor.h
     ${SOFAVALIDATION_SRC}/DevMonitorManager.h
     ${SOFAVALIDATION_SRC}/DevTensionMonitor.h
