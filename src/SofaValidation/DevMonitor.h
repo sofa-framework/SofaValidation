@@ -25,7 +25,7 @@
 #include <sofa/type/vector.h>
 #include <sofa/core/objectmodel/Event.h>
 #include <sofa/simulation/AnimateEndEvent.h>
-#include <sofa/core/DevBaseMonitor.h>
+#include <SofaValidation/DevBaseMonitor.h>
 
 namespace sofa::component::misc
 {
