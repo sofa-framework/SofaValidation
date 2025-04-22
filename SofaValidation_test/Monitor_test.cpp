@@ -161,16 +161,22 @@ struct Monitor_test : public BaseSimulationTest
         std::remove(std::string(monitor->d_fileName.getFullPath() + "_f.txt").c_str());
         std::remove(std::string(monitor->d_fileName.getFullPath() + "_v.txt").c_str());
     }
-    void SetUp() override
+    void doSetUp() override
     {
-        simpleapi::importPlugin("Sofa.Component");
-        simpleapi::importPlugin("SofaValidation");
+        this->loadPlugins({
+            "SofaValidation",
+            Sofa.Component.ODESolver.Backward,
+            Sofa.Component.LinearSolver.Iterative,
+            Sofa.Component.IO.Mesh,
+            Sofa.Component.StateContainer,
+            Sofa.Component.Mass
+        });
 
         std::string scene =
                 "<Node name='root' gravity='0 -9.81 0'>"
                 "<DefaultAnimationLoop/>"
                 "<Node name='node'>"
-                "<EulerImplicit rayleighStiffness='0' printLog='false' rayleighMass='0.1'/>"
+                "<EulerImplicitSolver rayleighStiffness='0' printLog='false' rayleighMass='0.1'/>"
                 "<CGLinearSolver iterations='100' threshold='0.00000001' "
                 "tolerance='1e-5'/>"
                 "<MeshGmshLoader name='loader' filename='mesh/smCube27.msh' "
@@ -197,9 +203,6 @@ struct Monitor_test : public BaseSimulationTest
         EXPECT_FALSE(mo == 0);
     }
 
-    void TearDown() override
-    {
-    }
 };
 
 /// Checks whether the video is well loaded and 1st frame retrieved at init()
