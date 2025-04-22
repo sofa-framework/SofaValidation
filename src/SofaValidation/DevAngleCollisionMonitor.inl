@@ -73,7 +73,7 @@ void DevAngleCollisionMonitor<DataTypes>::eval()
 {
     if (!this->mstate1 || !this->mstate2 || !surfaceCM || !pointsCM || !intersection || !narrowPhaseDetection) return;
 
-    const VecCoord& x = this->mstate1->read(core::ConstVecCoordId::position())->getValue();
+    const VecCoord& x = this->mstate1->read(core::vec_id::read_access::position)->getValue();
     surfaceCM->computeBoundingTree(6);
     pointsCM->computeBoundingTree(6);
     intersection->setAlarmDistance(maxDist.getValue());

@@ -82,8 +82,8 @@ SReal EvalSurfaceDistance<DataTypes>::eval()
 {
     if (!this->mstate1 || !this->mstate2 || !surfaceCM || !pointsCM || !intersection || !narrowPhaseDetection) return 0.0;
 
-    const VecCoord& x0 = this->mstate1->read(core::ConstVecCoordId::restPosition())->getValue();
-    const VecCoord& x1 = this->mstate1->read(core::ConstVecCoordId::position())->getValue();
+    const VecCoord& x0 = this->mstate1->read(core::vec_id::read_access::restPosition)->getValue();
+    const VecCoord& x1 = this->mstate1->read(core::vec_id::read_access::position)->getValue();
 
     surfaceCM->computeBoundingTree(6);
     pointsCM->computeBoundingTree(6);
@@ -155,8 +155,8 @@ void EvalSurfaceDistance<DataTypes>::draw(const core::visual::VisualParams* vpar
     if (!this->f_draw.getValue())
         return;
     if (!this->mstate1 || !this->mstate2 || xproj.empty()) return;
-    const VecCoord& x1 = this->mstate1->read(core::ConstVecCoordId::position())->getValue();
-    const VecCoord& x2 = xproj; //this->mstate2->read(core::ConstVecCoordId::position())->getValue();
+    const VecCoord& x1 = this->mstate1->read(core::vec_id::read_access::position)->getValue();
+    const VecCoord& x2 = xproj; //this->mstate2->read(core::vec_id::read_access::position)->getValue();
     this->doDraw(vparams, x1, x2);
 }
 

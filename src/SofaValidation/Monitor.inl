@@ -96,9 +96,9 @@ void Monitor<DataTypes>::init()
         return;
     }
 
-    m_X = &mmodel->read(core::ConstVecCoordId::position())->getValue();
-    m_V = &mmodel->read(core::ConstVecDerivId::velocity())->getValue();
-    m_F = &mmodel->read(core::ConstVecDerivId::force())->getValue();
+    m_X = &mmodel->read(core::vec_id::read_access::position)->getValue();
+    m_V = &mmodel->read(core::vec_id::read_access::velocity)->getValue();
+    m_F = &mmodel->read(core::vec_id::read_access::force)->getValue();
 
 
 
