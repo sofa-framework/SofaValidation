@@ -60,3 +60,9 @@ if(SOFAVALIDATION_BUILD_TESTS)
     add_subdirectory(SofaValidation_test)
 endif()
 
+sofa_find_package(SofaCUDA QUIET)
+if(SofaCUDA_FOUND)
+    add_subdirectory(SofaValidation_test)
+endif()
+
+sofa_add_subdirectory(plugin extensions/CUDA SofaValidation.CUDA)
