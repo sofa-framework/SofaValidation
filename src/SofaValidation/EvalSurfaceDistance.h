@@ -29,8 +29,8 @@
 #include <sofa/simulation/AnimateBeginEvent.h>
 #include <sofa/simulation/AnimateEndEvent.h>
 
-#include <sofa/component/collision/geometry/PointModel.h>
-#include <sofa/component/collision/geometry/TriangleModel.h>
+#include <sofa/component/collision/geometry/PointCollisionModel.h>
+#include <sofa/component/collision/geometry/TriangleCollisionModel.h>
 #include <sofa/component/collision/detection/intersection/NewProximityIntersection.h>
 #include <sofa/component/collision/detection/algorithm/BVHNarrowPhase.h>
 
